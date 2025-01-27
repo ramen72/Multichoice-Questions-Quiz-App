@@ -37,19 +37,19 @@ const quizData = [
   ];
   
   const quiz = document.getElementById("quiz");
-  const questionEl = document.querySelector(".question");
-  const answersEl = document.querySelector(".answers");
+  const question = document.querySelector(".question");
+  const answers = document.querySelector(".answers");
   const submitBtn = document.getElementById("submit");
-  const resultEl = document.getElementById("result");
-  const scoreEl = document.getElementById("score");
+  const result = document.getElementById("result");
+  const score = document.getElementById("score");
   
   let currentQuestion = 0;
-  let score = 0;
+  let scoreCount = 0;
   
   function loadQuiz() {
     const currentQuizData = quizData[currentQuestion];
-    questionEl.innerText = currentQuizData.question;
-    answersEl.innerHTML = "";
+    question.innerText = currentQuizData.question;
+    answers.innerHTML = "";
   
     currentQuizData.options.forEach((option, index) => {
       const li = document.createElement("li");
@@ -57,7 +57,7 @@ const quizData = [
         <input type="radio" name="answer" id="option${index}" value="${index}">
         <label for="option${index}">${option}</label>
       `;
-      answersEl.appendChild(li);
+      answers.appendChild(li);
     });
   }
   
@@ -83,7 +83,7 @@ const quizData = [
     }
   
     if (selectedOption === quizData[currentQuestion].correct) {
-      score++;
+      scoreCount++;
     }
   
     currentQuestion++;
@@ -92,10 +92,9 @@ const quizData = [
       loadQuiz();
     } else {
       quiz.classList.add("hidden");
-      resultEl.classList.remove("hidden");
-      scoreEl.innerText = score;
+      result.classList.remove("hidden");
+      score.innerText = scoreCount;
     }
   });
   
   loadQuiz();
-  
