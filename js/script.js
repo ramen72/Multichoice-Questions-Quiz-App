@@ -39,14 +39,21 @@ const quizData = [
   const quiz = document.getElementById("quiz");
   const question = document.querySelector(".question");
   const answers = document.querySelector(".answers");
+
+  // Button Select
+  const quizAppStart = document.getElementById("quizAppStart");
   const submitBtn = document.getElementById("submit");
+
   const result = document.getElementById("result");
   const score = document.getElementById("score");
   
   let currentQuestion = 0;
   let scoreCount = 0;
+  const examTime = 10000;
   
   function loadQuiz() {
+    quizAppStart.style.display = "none"
+    submitBtn.style.display = "block"
     const currentQuizData = quizData[currentQuestion];
     question.innerText = currentQuizData.question;
     answers.innerHTML = "";
@@ -59,6 +66,7 @@ const quizData = [
       `;
       answers.appendChild(li);
     });
+    setTimeout(timeOutMessage,examTime)
   }
   
   function getSelected() {
@@ -74,27 +82,34 @@ const quizData = [
     return selectedOption;
   }
   
-  submitBtn.addEventListener("click", () => {
-    const selectedOption = getSelected();
-  
+  submitBtn.addEventListener("click",submitItem)
+
+  function submitItem(){
+    const selectedOption = getSelected();  
     if (selectedOption === null) {
       alert("Please select an answer!");
       return;
-    }
-  
+    }  
     if (selectedOption === quizData[currentQuestion].correct) {
       scoreCount++;
-    }
-  
-    currentQuestion++;
-  
+    }  
+    currentQuestion++;  
     if (currentQuestion < quizData.length) {
       loadQuiz();
     } else {
       quiz.classList.add("hidden");
       result.classList.remove("hidden");
+      submitBtn.style.display = "none";
       score.innerText = scoreCount;
     }
-  });
+  }
+
+  quizAppStart.addEventListener("click",loadQuiz)
   
-  loadQuiz();
+  // Time Out Function
+  function timeOutMessage() {
+    quiz.classList.add("hidden");
+    result.classList.remove("hidden");
+    submitBtn.style.display = "none";
+    score.innerText = scoreCount;
+  }
