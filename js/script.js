@@ -39,6 +39,7 @@ const quizData = [
   const quiz = document.getElementById("quiz");
   const question = document.querySelector(".question");
   const answers = document.querySelector(".answers");
+  const queTime = document.querySelector("#queTime");
 
   // Button Select
   const quizAppStart = document.getElementById("quizAppStart");
@@ -98,6 +99,7 @@ const quizData = [
       quiz.classList.add("hidden");
       result.classList.remove("hidden");
       submitBtn.style.display = "none";
+      queTime.style.display = "none"
       score.innerText = scoreCount;
     }
   }
@@ -107,6 +109,7 @@ const quizData = [
     quiz.classList.add("hidden");
     result.classList.remove("hidden");
     submitBtn.style.display = "none";
+    queTime.style.display = "none"
     score.innerText = scoreCount;
   }
   submitBtn.addEventListener("click",submitItem)
