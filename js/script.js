@@ -56,7 +56,7 @@ const quizData = [
     quizAppStart.style.display = "none"
     submitBtn.style.display = "block"
     const currentQuizData = quizData[currentQuestion];
-    question.innerText = currentQuizData.question;
+    question.innerText = `${currentQuestion + 1}. ${currentQuizData.question}`;
     answers.innerHTML = "";
   
     currentQuizData.options.forEach((option, index) => {
