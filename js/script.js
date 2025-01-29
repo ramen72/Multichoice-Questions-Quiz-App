@@ -82,8 +82,6 @@ const quizData = [
     return selectedOption;
   }
   
-  submitBtn.addEventListener("click",submitItem)
-
   function submitItem(){
     const selectedOption = getSelected();  
     if (selectedOption === null) {
@@ -103,8 +101,6 @@ const quizData = [
       score.innerText = scoreCount;
     }
   }
-
-  quizAppStart.addEventListener("click",loadQuiz)
   
   // Time Out Function
   function timeOutMessage() {
@@ -113,3 +109,5 @@ const quizData = [
     submitBtn.style.display = "none";
     score.innerText = scoreCount;
   }
+  submitBtn.addEventListener("click",submitItem)
+  quizAppStart.addEventListener("click",loadQuiz)
