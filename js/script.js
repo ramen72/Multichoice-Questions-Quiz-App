@@ -49,7 +49,7 @@ const quizData = [
   
   let currentQuestion = 0;
   let scoreCount = 0;
-  const examTime = 10000;
+  const examTime = 20000;
   
   function loadQuiz() {
     quizAppStart.style.display = "none"
