@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Quiz App</h1>
-        <div id="queTime">
-          <p class="numberOfQues">Total Question # 05</p>
-          <p class="examTimeSec">Exam Time : 20 Sec</p>
-        </div>
-        <button id="quizAppStart">Start Exam</button>
-        <div id="quiz">            
-          <!-- <div class="question">Question will appear here</div> -->
-          <div class="question"></div>
-          <ul class="answers">
+<div class="quiz-container">
+    <h1>Quiz App</h1>
+    <span id="timeUp">Time Up..!</span>
+    <div id="queTime">
+        <p class="numberOfQues"><span id="remainingText">Total Question #</span> <span id="remainingQuestion"></span></p>
+        <p class="examTimeSec">Exam Time : <span id="remainingTime">20</span> Sec</p>
+    </div>
+    <button id="quizAppStart">Start Quiz</button>
+    <div id="quiz">
+        <!-- <div class="question">Question will appear here</div> -->
+        <div class="question"></div>
+        <ul class="answers">
             <!-- Options will be dynamically injected here -->
-          </ul>
-        </div>
-        <button id="submit">Submit</button>
-        <div id="result" class="hidden">Your score is: <span id="score">0</span></div>
-      </div>
-    
+        </ul>
+    </div>
+    <button id="submit">Next</button>
+    <div id="result" class="hidden">Your score is: <span id="score">0</span></div>
+</div>
 
-    <script src="./js/script.js"></script>
+
+<script src="./js/script.js"></script>
 </body>
 </html>
